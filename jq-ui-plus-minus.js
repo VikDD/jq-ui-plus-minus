@@ -51,7 +51,6 @@
 				}).tooltip({track:true});
 				plus_span.removeClass("ui-corner-all");
 				plus_span.addClass("ui-corner-right");
-				inpt.css("text-align","right");
 				inpt.prop("readonly",true);
 				inpt.addClass("ui-plus-minused");			
 				inpt.css("display","none");
