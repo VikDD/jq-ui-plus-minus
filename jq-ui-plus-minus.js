@@ -1,8 +1,8 @@
 (function( $ ) {
      $.fn.buttonsPlusMinus = function(options) {
 		 var settings = $.extend({
-            minValue: -1000,
-            maxValue: 1000,
+            		minValue: -1024,
+            		maxValue: 1023,
 			decreaseText:'-1',
 			increaseText:'+1',
 			decreaseIcon:"ui-icon-circle-minus",
