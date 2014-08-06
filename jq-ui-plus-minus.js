@@ -5,6 +5,8 @@
             maxValue: 1000,
 			decreaseText:'-1',
 			increaseText:'+1',
+			decreaseIcon:"ui-icon-circle-minus",
+			increaseIcon:"ui-icon-circle-plus",
 			changedFunction:function(inpObj,changeResult){}
         }, options );
         this.each(function() {
@@ -22,7 +24,7 @@
 				minus_span.insertBefore(inpt);
 				val_span.insertBefore(inpt);
 				plus_span.insertAfter(inpt);
-				minus_span.button({icons:{primary: "ui-icon-circle-minus"},text: false}).click(function(e){
+				minus_span.button({icons:{primary: settings.decreaseIcon},text: false}).click(function(e){
 					var inpt_val=parseInt(inpt.val());
 						if(isNaN(inpt_val))
 						{
@@ -39,7 +41,7 @@
 				}).tooltip({track:true});
 				minus_span.removeClass("ui-corner-all");
 				minus_span.addClass("ui-corner-left");
-				plus_span.button({icons:{primary: "ui-icon-circle-plus"},text: false}).click(function(e){
+				plus_span.button({icons:{primary: settings.increaseIcon},text: false}).click(function(e){
 					var inpt_val=parseInt(inpt.val());
 						if(isNaN(inpt_val))
 						{
