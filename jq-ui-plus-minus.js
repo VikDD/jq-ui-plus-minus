@@ -4,9 +4,10 @@
             minValue: -1000,
             maxValue: 1000,
 			decreaseText:'-1',
-			increaseText:'+1'
+			increaseText:'+1',
+			changedFunction:function(inpObj,changeResult){}
         }, options );
-        return this.each(function() {
+        this.each(function() {
 			if(!$(this).hasClass("ui-plus-minused"))
 			{
 				var minus_span=$("<span>"+settings.decreaseText+"</span>");
@@ -27,11 +28,13 @@
 						{
 							inpt_val=min_val>0?min_val:0;
 						}
+					var old_inpt_val=inpt_val;
 					if(inpt_val>min_val)
 					{--inpt_val;}
 					if(inpt_val>max_val)
 					{inpt_val=max_val;}
 					inpt.val(inpt_val);
+					settings.changedFunction(inpt,old_inpt_val!=inpt_val);
 					val_span.find(".ui-button-text").text(inpt_val);
 				}).tooltip({track:true});
 				minus_span.removeClass("ui-corner-all");
@@ -42,15 +45,18 @@
 						{
 							inpt_val=max_val<0?max_val:0;
 						}
+					var old_inpt_val=inpt_val;
 					if(inpt_val<max_val)
 					{++inpt_val;}
 					if(inpt_val<min_val)
 					{inpt_val=min_val;}
 					inpt.val(inpt_val);
+					settings.changedFunction(inpt,old_inpt_val!=inpt_val);
 					val_span.find(".ui-button-text").text(inpt_val);
 				}).tooltip({track:true});
 				plus_span.removeClass("ui-corner-all");
 				plus_span.addClass("ui-corner-right");
+				inpt.css("text-align","right");
 				inpt.prop("readonly",true);
 				inpt.addClass("ui-plus-minused");			
 				inpt.css("display","none");
